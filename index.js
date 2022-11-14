@@ -36,7 +36,7 @@ const questions = [
     },
     {
         type: "input",
-        message: "Please provide the text information of your project.",
+        message: "Please provide the test information of your project.",
         name: "tests",
     },
     {
@@ -52,7 +52,7 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then((answers) => {
-    console.log(answers);
     fs.writeFile("README.md", readme_helper.renderTemplate(answers), (err) => err ? console.error(err) : console.log('Success!'));
 });
+
 
