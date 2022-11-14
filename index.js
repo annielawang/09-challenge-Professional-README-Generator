@@ -1,7 +1,9 @@
+// modules used in the project
 const inquirer = require("inquirer");
 const fs = require("fs");
 const readme_helper = require("./readme_helper.js");
 
+// question array used in the inquirer prompt
 const questions = [
     {
         type: "input",
@@ -51,6 +53,7 @@ const questions = [
     },
 ];
 
+// main entry, prompt to generate a readme file
 inquirer.prompt(questions).then((answers) => {
     fs.writeFile("README.md", readme_helper.renderTemplate(answers), (err) => err ? console.error(err) : console.log('Success!'));
 });
